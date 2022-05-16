@@ -5,3 +5,7 @@ function getWeapon(index) {
         ? undefined
         : weapons[index];
 }
+/* computerChoice retorna un string con una elección aleatoria de getWeapon */
+function computerChoice() {
+    return getWeapon(Math.round(Math.random() * 2));
+}
