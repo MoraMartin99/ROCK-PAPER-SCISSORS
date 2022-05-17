@@ -10,6 +10,26 @@ function computerChoice() {
     return getWeapon(Math.round(Math.random() * 2));
 }
 
+/* playerChoice asegura mediante un bucle y condicionales que el jugador escriba un input válido */
+function playerChoice() {
+    let choice;
+    while (
+        parseInt(choice, 10) < 0 ||
+        parseInt(choice, 10) > 2 ||
+        isNaN(parseInt(choice, 10))
+    ) {
+        choice =
+            prompt(`Selecciona tu arma para el round escribiendo el número correspondiente:
+
+        0 - Rock
+        1 - Paper
+        2 - Scissors
+        
+        `);
+    }
+    return choice;
+}
+
 /* round retorna un objeto con las keys player y computer y con los value 1 para el que gano y 0 para el que perdió. en caso de empate ambos reciben 0 */
 function round(player, computer) {
     let pointForPlayer = 0;
