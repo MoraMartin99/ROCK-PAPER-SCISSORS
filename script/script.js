@@ -66,3 +66,54 @@ function round(player, computer) {
     }
     return { scorePlayer: pointForPlayer, scoreComputer: pointForComputer };
 }
+
+/* game simulará 5 rounds, llevara conteo del ganador de cada round y mostrara un string con el ganador del juego */
+function game() {
+    let totalPointPlayer = 0;
+    let totalPointComputer = 0;
+
+    for (let roundNumber = 1; roundNumber <= 5; roundNumber++) {
+        let playerWeapon = playerChoice();
+        let computerWeapon = computerChoice();
+        let result = round(playerWeapon, computerWeapon);
+
+        if (result.scorePlayer === 0 && result.scoreComputer === 0) {
+            alert(`¡Es un empate!
+            
+            Tu elegiste: ${playerWeapon}
+            La computadora eligió: ${computerWeapon}`);
+        } else if (result.scorePlayer === 1) {
+            alert(`¡Tu ganas!
+            
+            Tu elegiste: ${playerWeapon}
+            La computadora eligió: ${computerWeapon}`);
+        } else {
+            alert(`¡Tu pierdes!
+            
+            Tu elegiste: ${playerWeapon}
+            La computadora eligió: ${computerWeapon}`);
+        }
+        totalPointComputer += result.scoreComputer;
+        totalPointPlayer += result.scorePlayer;
+    }
+
+    switch (true) {
+        case totalPointComputer === totalPointPlayer:
+            alert(`¡Es un empate!
+            
+            Tus rounds ganados: ${totalPointPlayer}
+            Rounds ganados por la computadora: ${totalPointComputer}`);
+            break;
+        case totalPointPlayer > totalPointComputer:
+            alert(`¡Tu ganaste!
+            
+            Tus rounds ganados: ${totalPointPlayer}
+            Rounds ganados por la computadora: ${totalPointComputer}`);
+            break;
+        case totalPointPlayer < totalPointComputer:
+            alert(`¡Tu perdiste!
+            
+            Tus rounds ganados: ${totalPointPlayer}
+            Rounds ganados por la computadora: ${totalPointComputer}`);
+    }
+}
