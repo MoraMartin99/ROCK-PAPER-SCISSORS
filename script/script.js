@@ -44,6 +44,17 @@ const getComputerWeapon = () => {
     return weaponArr[index()];
 };
 /* ------------------------------------------------------------------------------------------ */
+
+/* definimos clickFeedback() */
+/* ------------------------------------------------------------------------------------------ */
+const clickFeedback = (button) => {
+    button.classList.add("click");
+
+    countdownCall(200, () => {
+        button.classList.remove("click");
+    });
+};
+/* ------------------------------------------------------------------------------------------ */
         }
         totalPointComputer += result.scoreComputer;
         totalPointPlayer += result.scorePlayer;
