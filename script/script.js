@@ -55,6 +55,19 @@ const clickFeedback = (button) => {
     });
 };
 /* ------------------------------------------------------------------------------------------ */
+
+/* definimos resetInstruction() */
+/* ------------------------------------------------------------------------------------------ */
+const resetInstruction = () => {
+    const insideText = `<p class="reset">
+        Elija sabiamente<span class="dot n1">.</span><span class="dot n2">.</span><span class="dot n3">.</span>
+    </p>`;
+
+    instruction.innerHTML = insideText;
+
+    showIndicator();
+};
+/* ------------------------------------------------------------------------------------------ */
         }
         totalPointComputer += result.scoreComputer;
         totalPointPlayer += result.scorePlayer;
