@@ -68,6 +68,79 @@ const resetInstruction = () => {
     showIndicator();
 };
 /* ------------------------------------------------------------------------------------------ */
+
+/* definimos setResult() */
+/* ------------------------------------------------------------------------------------------ */
+const setResult = (playerChoice, computerChoice, round) => {
+    let result;
+    switch (true) {
+        case playerChoice == computerChoice:
+            result = "draw";
+            break;
+        case playerChoice == "rock" && computerChoice == "paper":
+            result = "lose";
+            break;
+        case playerChoice == "rock" && computerChoice == "scissors":
+            result = "win";
+            break;
+        case playerChoice == "paper" && computerChoice == "rock":
+            result = "win";
+            break;
+        case playerChoice == "paper" && computerChoice == "scissors":
+            result = "lose";
+            break;
+        case playerChoice == "scissors" && computerChoice == "rock":
+            result = "lose";
+            break;
+        case playerChoice == "scissors" && computerChoice == "paper":
+            result = "win";
+            break;
+    }
+    resultArr.push({ round: round, playerWeapon: playerChoice, computerWeapon: computerChoice, result: result });
+};
+/* ------------------------------------------------------------------------------------------ */
+
+/* definimos showResult() */
+/* ------------------------------------------------------------------------------------------ */
+const showResult = () => {
+    const currentResult = resultArr[resultArr.length - 1];
+    const playerRoute = getRoute(currentResult.playerWeapon);
+    const computerRoute = getRoute(currentResult.computerWeapon);
+    let resultText;
+    let insideText;
+
+    switch (currentResult.result) {
+        case "win":
+            resultText = `<p class="result">El resultado es: tu <span class="${currentResult.result}">ganas</span>!</p>`;
+            break;
+        case "lose":
+            resultText = `<p class="result">El resultado es: tu <span class="${currentResult.result}">pierdes</span>!</p>`;
+            break;
+        case "draw":
+            resultText = `<p class="result">El resultado es: empate!</p>`;
+            break;
+    }
+
+    insideText = `<div class="resultBox">
+                    <div class="panel">
+                        <div class="playerBox">
+                            <p class="player">Tu</p>
+                            <img src="${playerRoute}" alt="choice" class="choice" />
+                        </div>
+                        <p class="vs">VS</p>
+                        <div class="playerBox">
+                            <p class="player">COMP</p>
+                            <img src="${computerRoute}" alt="choice" class="choice" />
+                        </div>
+                    </div>
+                    <div class="container">
+                        ${resultText}
+                    </div>
+                </div>`;
+
+    instruction.innerHTML = insideText;
+};
+/* ------------------------------------------------------------------------------------------ */
         }
         totalPointComputer += result.scoreComputer;
         totalPointPlayer += result.scorePlayer;
