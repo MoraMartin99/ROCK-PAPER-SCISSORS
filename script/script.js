@@ -1,29 +1,19 @@
-/*  getWeapon retorna un string con la arma asignada a un index*/
-function getWeapon(index) {
-    let weapons = ["Rock", "Paper", "Scissors"];
-    return typeof index !== "number" || index >= weapons.length
-        ? undefined
-        : weapons[index];
-}
-/* computerChoice retorna un string con una elección aleatoria de getWeapon */
-function computerChoice() {
-    return getWeapon(Math.round(Math.random() * 2));
-}
-
-/* playerChoice asegura mediante un bucle y condicionales que el jugador escriba un input válido */
-function playerChoice() {
-    let choice = NaN;
-    while (choice < 0 || choice > 2 || isNaN(choice)) {
-        choice = parseInt(
-            prompt(`Selecciona tu arma para el round escribiendo el número correspondiente:
-
-        0 - Rock
-        1 - Paper
-        2 - Scissors
-        
-        `),
-            10
-        );
+/* variables globales*/
+/* ------------------------------------------------------------------------------------------ */
+const rock = document.querySelector(".rock");
+const paper = document.querySelector(".paper");
+const scissors = document.querySelector(".scissors");
+const controlBox = document.querySelector(".controlBox");
+const display = document.querySelector(".display");
+const instruction = document.querySelector(".instruction");
+const buttonArr = Array.from(document.querySelectorAll(".btn"));
+const indicatorArr = Array.from(document.querySelectorAll(".indicator"));
+const button2 = document.querySelector(".btn2");
+let resultArr;
+let round;
+let weapon;
+let computerWeapon;
+/* ------------------------------------------------------------------------------------------ */
     }
     return getWeapon(choice);
 }
