@@ -14,74 +14,36 @@ let round;
 let weapon;
 let computerWeapon;
 /* ------------------------------------------------------------------------------------------ */
+
+/* definimos getWeapon() */
+/* ------------------------------------------------------------------------------------------ */
+const getWeapon = (button) => {
+    const buttonClasslist = button.classList;
+    if (buttonClasslist.contains("rock")) {
+        return "rock";
     }
-    return getWeapon(choice);
-}
 
-/* round retorna un objeto con las keys player y computer y con los value 1 para el que gano y 0 para el que perdió. en caso de empate ambos reciben 0 */
-function round(player, computer) {
-    let pointForPlayer = 0;
-    let pointForComputer = 0;
-
-    if (player === "Rock") {
-        switch (computer) {
-            case "Paper":
-                pointForPlayer = 0;
-                pointForComputer = 1;
-                break;
-            case "Scissors":
-                pointForPlayer = 1;
-                pointForComputer = 0;
-        }
-    } else if (player === "Paper") {
-        switch (computer) {
-            case "Rock":
-                pointForPlayer = 1;
-                pointForComputer = 0;
-                break;
-            case "Scissors":
-                pointForPlayer = 0;
-                pointForComputer = 1;
-        }
-    } else if (player === "Scissors") {
-        switch (computer) {
-            case "Paper":
-                pointForPlayer = 1;
-                pointForComputer = 0;
-                break;
-            case "Rock":
-                pointForPlayer = 0;
-                pointForComputer = 1;
-        }
+    if (buttonClasslist.contains("paper")) {
+        return "paper";
     }
-    return { scorePlayer: pointForPlayer, scoreComputer: pointForComputer };
-}
 
-/* game simulará 5 rounds, llevara conteo del ganador de cada round y mostrara un string con el ganador del juego */
-function game() {
-    let totalPointPlayer = 0;
-    let totalPointComputer = 0;
+    if (buttonClasslist.contains("scissors")) {
+        return "scissors";
+    }
+};
 
-    for (let roundNumber = 1; roundNumber <= 5; roundNumber++) {
-        let playerWeapon = playerChoice();
-        let computerWeapon = computerChoice();
-        let result = round(playerWeapon, computerWeapon);
+/* ------------------------------------------------------------------------------------------ */
 
-        if (result.scorePlayer === 0 && result.scoreComputer === 0) {
-            alert(`¡Es un empate!
-            
-            Tu elegiste: ${playerWeapon}
-            La computadora eligió: ${computerWeapon}`);
-        } else if (result.scorePlayer === 1) {
-            alert(`¡Tu ganas!
-            
-            Tu elegiste: ${playerWeapon}
-            La computadora eligió: ${computerWeapon}`);
-        } else {
-            alert(`¡Tu pierdes!
-            
-            Tu elegiste: ${playerWeapon}
-            La computadora eligió: ${computerWeapon}`);
+/* definimos getComputerWeapon() */
+/* ------------------------------------------------------------------------------------------ */
+const getComputerWeapon = () => {
+    const weaponArr = ["rock", "paper", "scissors"];
+    const index = () => {
+        return Math.round(Math.random() * 2);
+    };
+    return weaponArr[index()];
+};
+/* ------------------------------------------------------------------------------------------ */
         }
         totalPointComputer += result.scoreComputer;
         totalPointPlayer += result.scorePlayer;
