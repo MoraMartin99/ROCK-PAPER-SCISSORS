@@ -299,3 +299,10 @@ const main = (event) => {
     round++;
 };
 /* ------------------------------------------------------------------------------------------ */
+
+resetGame();
+
+button2.addEventListener("click", (event) => {
+    clickFeedback(event.currentTarget);
+    countdownCall(200, resetGame);
+});
