@@ -264,3 +264,16 @@ const showFinalResult = () => {
 };
 /* ------------------------------------------------------------------------------------------ */
 
+/* definimos resetGame */
+/* ------------------------------------------------------------------------------------------ */
+const resetGame = () => {
+    resultArr = [];
+    round = 1;
+    controlBox.style.display = "flex";
+    button2.style.display = "none";
+    hideIndicator();
+    enableListener();
+    resetInstruction();
+};
+/* ------------------------------------------------------------------------------------------ */
+
