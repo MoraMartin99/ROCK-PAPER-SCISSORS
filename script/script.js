@@ -141,9 +141,36 @@ const showResult = () => {
     instruction.innerHTML = insideText;
 };
 /* ------------------------------------------------------------------------------------------ */
+
+/* definimos showIndicator() */
+/* ------------------------------------------------------------------------------------------ */
+const showIndicator = () => {
+    resultArr.forEach((item) => {
+        const target = document.querySelector(`.r${item.round} .indicatorIcon`);
+        let src;
+        if (item.result == "win") {
+            src = "./img/check.png";
+        } else if (item.result == "lose") {
+            src = "./img/x.png";
+        } else if (item.result == "draw") {
+            src = "./img/equals.png";
         }
-        totalPointComputer += result.scoreComputer;
-        totalPointPlayer += result.scorePlayer;
+        target.setAttribute("src", src);
+        target.style.visibility = "visible";
+    });
+};
+/* ------------------------------------------------------------------------------------------ */
+
+/* definimos hideIndicator() */
+/* ------------------------------------------------------------------------------------------ */
+const hideIndicator = () => {
+    indicatorArr.forEach((item) => {
+        const target = item.querySelector(`.indicatorIcon`);
+        target.style.visibility = "hidden";
+    });
+};
+/* ------------------------------------------------------------------------------------------ */
+
     }
 
     switch (true) {
