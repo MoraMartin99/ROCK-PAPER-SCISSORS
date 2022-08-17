@@ -277,3 +277,25 @@ const resetGame = () => {
 };
 /* ------------------------------------------------------------------------------------------ */
 
+/* definimos main() */
+/* ------------------------------------------------------------------------------------------ */
+const main = (event) => {
+    const button = event.currentTarget;
+    const time = 3000;
+    disableListener();
+    clickFeedback(button);
+    weapon = getWeapon(button);
+    computerWeapon = getComputerWeapon();
+    setResult(weapon, computerWeapon, round);
+    showResult();
+    if (round < 5) {
+        countdownCall(time, () => {
+            resetInstruction();
+            enableListener();
+        });
+    } else {
+        countdownCall(time, showFinalResult);
+    }
+    round++;
+};
+/* ------------------------------------------------------------------------------------------ */
