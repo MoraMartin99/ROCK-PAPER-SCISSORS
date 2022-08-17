@@ -178,52 +178,73 @@ h1 {
 
 /* ------------------------------------------------------------------------------------------ */
 
+/* Botones */
+/* ------------------------------------------------------------------------------------------ */
+.controlBox {
     width: 400px;
     display: flex;
     justify-content: space-between;
 }
 
-.btn{
+.btn {
     width: 120px;
     height: 120px;
     display: inline-flex;
     flex-direction: column;
-    justify-content:space-evenly;
+    justify-content: space-evenly;
     align-items: center;
     border: 2px solid black;
     border-radius: 10px;
-    transition: transform 0.2s linear,border 0.2s linear,filter 0.2s linear;
+    transition: transform 0.2s linear, border 0.2s linear, filter 0.2s linear;
 }
 
-.btn:hover{
-    cursor:pointer;
+.btn:hover {
+    cursor: pointer;
     transform: scale(1.2);
-    border: 4px solid black;
-    filter: saturate(2);
+    border: 2.5px solid black;
+    filter: saturate(2.5);
 }
 
-.rock{
+.rock {
     background-color: var(--celeste);
 }
 
-.paper{
+.paper {
     background-color: var(--rosa);
 }
 
-.scissors{
+.scissors {
     background-color: var(--verde);
+}
+
+.btnCover {
+    width: 50%;
+}
+
+.label {
+    font-size: 20px;
+}
+
+.btn2 {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: var(--naranja);
+    background-image: url(./img/restart.png);
+    background-size: 35px;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 2px solid black;
+    transition: transform 0.2s linear, border 0.2s linear, filter 0.2s linear;
+}
+
+.btn2:hover {
+    cursor: pointer;
+    transform: scale(1.1);
 }
 
 .click {
     background-color: gold;
 }
 
-.btnCover{
-    width: 50%;
-}
-
-.label{
-    font-size: 20px;
-}
-
-
+/* ------------------------------------------------------------------------------------------ */
