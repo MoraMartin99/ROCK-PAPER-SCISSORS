@@ -3,24 +3,24 @@
     src: url(./font/Shure\ Tech\ Mono\ Nerd\ Font\ Complete.ttf);
 }
 
-html{
-    --cafe: #3E2723;
-    --amarillo: #FFF59D;
-    --verde: #C5E1A5;
-    --celeste: #90CAF9;
-    --rosa: #F48FB1;
-
-
+html {
+    --cafe: #3e2723;
+    --amarillo: #fff59d;
+    --verde: #c5e1a5;
+    --celeste: #90caf9;
+    --rosa: #f48fb1;
+    --naranja: #ff8a65;
 }
 
-*{
+* {
     font-family: "shuremono";
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 0px;
 }
 
-body{
+body {
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -29,13 +29,12 @@ body{
     background-color: var(--cafe);
 }
 
-h1{
+h1 {
     font-size: 50px;
     color: white;
     margin-bottom: 30px;
 }
 
-.diplay{
     width: 400px;
     height: 100px;
     background-color: var(--amarillo);
