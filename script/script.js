@@ -171,7 +171,51 @@ const hideIndicator = () => {
 };
 /* ------------------------------------------------------------------------------------------ */
 
+/* definimos getRoute()  */
+/* ------------------------------------------------------------------------------------------ */
+const getRoute = (weapon) => {
+    switch (weapon) {
+        case "rock":
+            return "./img/rock.png";
+        case "paper":
+            return "./img/paper.png";
+        case "scissors":
+            return "./img/scissors.png";
     }
+};
+/* ------------------------------------------------------------------------------------------ */
+
+/* definimos countdownCall() */
+/* ------------------------------------------------------------------------------------------ */
+const countdownCall = (time, callback) => {
+    new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve();
+        }, time);
+    }).then(() => {
+        callback();
+    });
+};
+/* ------------------------------------------------------------------------------------------ */
+
+/* definimos enableListener() */
+/* ------------------------------------------------------------------------------------------ */
+const enableListener = () => {
+    buttonArr.forEach((button) => {
+        button.addEventListener("click", main);
+    });
+};
+/* ------------------------------------------------------------------------------------------ */
+
+/* definimos disableListener() */
+/* ------------------------------------------------------------------------------------------ */
+const disableListener = () => {
+    buttonArr.forEach((button) => {
+        button.removeEventListener("click", main);
+    });
+};
+/* ------------------------------------------------------------------------------------------ */
+
 
     switch (true) {
         case totalPointComputer === totalPointPlayer:
