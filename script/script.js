@@ -216,24 +216,51 @@ const disableListener = () => {
 };
 /* ------------------------------------------------------------------------------------------ */
 
+/* definimos showFinalResult() */
+/* ------------------------------------------------------------------------------------------ */
+const showFinalResult = () => {
+    let win = 0;
+    let lose = 0;
+    let resultText;
+    let insideText;
+    resultArr.forEach((obj) => {
+        if (obj.result == "win") {
+            win++;
+        } else if (obj.result == "lose") {
+            lose++;
+        }
+    });
 
     switch (true) {
-        case totalPointComputer === totalPointPlayer:
-            alert(`¡Es un empate!
-            
-            Tus rounds ganados: ${totalPointPlayer}
-            Rounds ganados por la computadora: ${totalPointComputer}`);
+        case win > lose:
+            resultText = `<p class="result">El resultado es: tu <span class="win">ganas</span>!</p>`;
             break;
-        case totalPointPlayer > totalPointComputer:
-            alert(`¡Tu ganaste!
-            
-            Tus rounds ganados: ${totalPointPlayer}
-            Rounds ganados por la computadora: ${totalPointComputer}`);
+        case lose > win:
+            resultText = `<p class="result">El resultado es: tu <span class="lose">pierdes</span>!</p>`;
             break;
-        case totalPointPlayer < totalPointComputer:
-            alert(`¡Tu perdiste!
-            
-            Tus rounds ganados: ${totalPointPlayer}
-            Rounds ganados por la computadora: ${totalPointComputer}`);
+        case win == lose:
+            resultText = `<p class="result">El resultado es: empate!</p>`;
+            break;
     }
-}
+    insideText = `<div class="resultBox">
+            <div class="panel v2">
+                <div class="playerBox">
+                    <p class="player">Tu</p>
+                    <p class="number">${win}</p>
+                </div>
+                <p class="vs">VS</p>
+                <div class="playerBox">
+                    <p class="player">COMP</p>
+                    <p class="number">${lose}</p>
+                </div>
+            </div>
+            <div class="container v2">${resultText}</div>
+        </div>`;
+    instruction.innerHTML = insideText;
+    controlBox.style.display = "none";
+    button2.style.display = "block";
+
+    showIndicator();
+};
+/* ------------------------------------------------------------------------------------------ */
+
