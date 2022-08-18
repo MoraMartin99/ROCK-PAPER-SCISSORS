@@ -240,9 +240,8 @@ footer a:hover {
     width: 120px;
     height: 120px;
     display: inline-flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
+    justify-content: center;
+    align-items: flex-start;
     border: 2px solid black;
     border-radius: 10px;
     transition: transform 0.2s linear, border 0.2s linear, filter 0.2s linear;
@@ -257,22 +256,31 @@ footer a:hover {
 
 .rock {
     background-color: var(--celeste);
+    background-image: url(./img/rock.png);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: 50% 70%;
 }
 
 .paper {
     background-color: var(--rosa);
+    background-image: url(./img/paper.png);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: 50% 70%;
 }
 
 .scissors {
     background-color: var(--verde);
-}
-
-.btnCover {
-    width: 50%;
+    background-image: url(./img/scissors.png);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: 50% 70%;
 }
 
 .label {
     font-size: 20px;
+    margin-top: 10px;
 }
 
 .btn2 {
